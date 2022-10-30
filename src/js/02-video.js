@@ -10,4 +10,10 @@ function onPlay({ seconds }) {
   localStorage.setItem('videoplayer-current-time', seconds);
 }
 
-player.setCurrentTime(localStorage.getItem('videoplayer-current-time'));
+const getLocalStorageValue = localStorage.getItem('videoplayer-current-time');
+
+if (getLocalStorageValue === null || getLocalStorageValue === undefined) {
+  return ;
+} else {
+  player.setCurrentTime(getLocalStorageValue);
+};
